@@ -22,10 +22,8 @@
             --font-display: 'Cormorant Garamond', serif;
             --font-body: 'Outfit', sans-serif;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -34,862 +32,353 @@
             overflow-x: hidden;
         }
 
-
         /* NAV */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             transition: all 0.4s ease;
         }
-
         .nav-logo {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--accent);
+            font-family: var(--font-display); font-size: 1.6rem;
+            font-weight: 600; letter-spacing: 0.15em; color: var(--accent);
         }
-
         .nav-logo span {
-            font-weight: 300;
-            color: var(--text-secondary);
-            font-size: 0.65em;
-            display: block;
-            letter-spacing: 0.35em;
-            margin-top: -2px;
+            font-weight: 300; color: var(--text-secondary);
+            font-size: 0.65em; display: block; letter-spacing: 0.35em; margin-top: -2px;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 400;
-            transition: color 0.3s;
-            position: relative;
+            color: var(--text-secondary); text-decoration: none; font-size: 0.75rem;
+            letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400;
+            transition: color 0.3s; position: relative;
         }
-
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 1px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease;
         }
-
         .nav-links a:hover { color: var(--accent); }
         .nav-links a:hover::after { width: 100%; }
-
         .nav-cta {
-            padding: 0.6rem 1.8rem;
-            border: 1px solid var(--accent);
-            color: var(--accent) !important;
-            font-size: 0.7rem !important;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: all 0.3s ease !important;
+            padding: 0.6rem 1.8rem; border: 1px solid var(--accent);
+            color: var(--accent) !important; font-size: 0.7rem !important;
+            letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s ease !important;
         }
-
-        .nav-cta:hover {
-            background: var(--accent) !important;
-            color: var(--bg-primary) !important;
-        }
-
+        .nav-cta:hover { background: var(--accent) !important; color: var(--bg-primary) !important; }
         .nav-cta::after { display: none !important; }
-
         .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px;
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 5px;
         }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 1.5px;
-            background: var(--text-primary);
-            transition: all 0.3s;
-        }
+        .menu-toggle span { width: 24px; height: 1.5px; background: var(--text-primary); transition: all 0.3s; }
 
         /* HERO */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
         }
-
-        #hero-canvas {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-        }
-
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: radial-gradient(ellipse at 50% 40%, rgba(200, 164, 94, 0.06) 0%, transparent 60%);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-            z-index: 1;
+            animation: heroGlow 8s ease-in-out infinite alternate; z-index: 1;
         }
-
         @keyframes heroGlow {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(2%, -2%) scale(1.05); }
         }
-
-        .hero > *:not(canvas):not(.hero-line) {
-            position: relative;
-            z-index: 2;
-        }
-
+        .hero > *:not(canvas):not(.hero-line) { position: relative; z-index: 2; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.3s;
-            background: rgba(10,10,10,0.5);
-            backdrop-filter: blur(10px);
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.5rem 1.5rem; border: 1px solid var(--border); border-radius: 50px;
+            font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--text-secondary); margin-bottom: 3rem;
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
+            background: rgba(10,10,10,0.5); backdrop-filter: blur(10px);
         }
-
-        .hero-badge::before {
-            content: '';
-            width: 6px; height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
+        .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
         .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 300;
-            line-height: 1;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.5s;
+            font-family: var(--font-display); font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 300; line-height: 1; letter-spacing: 0.08em; margin-bottom: 1.5rem;
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
         }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--accent);
-            font-weight: 400;
-        }
-
+        .hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
         .hero-sub {
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.7s;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem); color: var(--text-secondary);
+            max-width: 600px; line-height: 1.8; margin-bottom: 3rem;
+            opacity: 0; animation: fadeUp 0.8s ease forwards 0.7s;
         }
-
         .hero-line {
             width: 1px; height: 80px;
             background: linear-gradient(to bottom, var(--accent), transparent);
-            margin-top: 2rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.9s;
-            position: relative;
-            z-index: 2;
+            margin-top: 2rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.9s;
+            position: relative; z-index: 2;
         }
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* STATS */
-        .stats {
-            padding: 5rem 3rem;
-            background: var(--bg-secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
+        .stats { padding: 5rem 3rem; background: var(--bg-secondary); position: relative; overflow: hidden; }
         .stats::before, .stats::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            content: ''; position: absolute; left: 50%; transform: translateX(-50%);
             width: 80%; height: 1px;
             background: linear-gradient(to right, transparent, var(--border), transparent);
         }
-
         .stats::before { top: 0; }
         .stats::after { bottom: 0; }
-
-        .stats-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            position: relative;
-        }
-
+        .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .stat-item { text-align: center; position: relative; }
         .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0; top: 50%;
-            transform: translateY(-50%);
-            width: 1px; height: 50px;
-            background: var(--border);
+            content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+            width: 1px; height: 50px; background: var(--border);
         }
-
         .stat-number {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 300;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.5rem;
         }
-
         .stat-number .suffix { font-size: 0.6em; color: var(--accent-light); }
-
-        .stat-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+        .stat-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); line-height: 1.5; }
 
         /* INTRO */
-        .intro {
-            padding: 8rem 3rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .intro-inner {
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
+        .intro { padding: 8rem 3rem; display: flex; justify-content: center; }
+        .intro-inner { max-width: 900px; display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start; }
         .intro-label {
-            writing-mode: vertical-lr;
-            transform: rotate(180deg);
-            font-size: 0.65rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--accent);
-            padding-top: 0.5rem;
+            writing-mode: vertical-lr; transform: rotate(180deg);
+            font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--accent); padding-top: 0.5rem;
         }
-
         .intro-text h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 300;
-            line-height: 1.4;
-            margin-bottom: 2rem;
+            font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300; line-height: 1.4; margin-bottom: 2rem;
         }
-
         .intro-text h2 em { font-style: italic; color: var(--accent); }
-
-        .intro-text p {
-            color: var(--text-secondary);
-            line-height: 1.9;
-            font-size: 0.95rem;
-        }
+        .intro-text p { color: var(--text-secondary); line-height: 1.9; font-size: 0.95rem; }
 
         /* CINEMATIC SEPARATORS */
         .cinematic {
-            position: relative;
-            height: 45vh;
-            min-height: 300px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative; height: 45vh; min-height: 300px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
-
         .cinematic-img {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.25) saturate(0.5);
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; filter: brightness(0.25) saturate(0.5);
         }
-
-        .cinematic-overlay {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 1;
-        }
-
+        .cinematic-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         .cinematic-overlay--gold {
             background:
                 linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10,10,10,0.3) 18%, rgba(10,10,10,0.3) 82%, var(--bg-primary) 100%),
                 linear-gradient(to right, rgba(200,164,94,0.04), rgba(200,164,94,0.08), rgba(200,164,94,0.04));
         }
-
         .cinematic-overlay--to-secondary {
             background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10,10,10,0.3) 18%, rgba(17,17,17,0.3) 82%, var(--bg-secondary) 100%);
         }
-
         .cinematic-overlay--from-secondary {
             background: linear-gradient(to bottom, var(--bg-secondary) 0%, rgba(17,17,17,0.3) 18%, rgba(10,10,10,0.3) 82%, var(--bg-primary) 100%);
         }
-
-        .cinematic-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 0 2rem;
-        }
-
+        .cinematic-content { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
         .cinematic-content .section-tag { margin-bottom: 1rem; }
-
         .cinematic-content h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 300;
-            font-style: italic;
-            color: var(--text-primary);
-            max-width: 600px;
-            line-height: 1.4;
+            font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300; font-style: italic; color: var(--text-primary);
+            max-width: 600px; line-height: 1.4;
         }
-
-        .cinematic-gold-line {
-            width: 60px;
-            height: 1px;
-            background: var(--accent);
-            margin: 1.5rem auto 0;
-            opacity: 0.6;
-        }
+        .cinematic-gold-line { width: 60px; height: 1px; background: var(--accent); margin: 1.5rem auto 0; opacity: 0.6; }
 
         /* SERVICES */
-        .services {
-            padding: 6rem 3rem 8rem;
-            position: relative;
-        }
-
+        .services { padding: 6rem 3rem 8rem; position: relative; }
         .services::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 80%; height: 1px;
             background: linear-gradient(to right, transparent, var(--border), transparent);
         }
-
         .section-header { text-align: center; margin-bottom: 5rem; }
-
         .section-tag {
-            font-size: 0.65rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 1.5rem;
+            font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--accent); display: block; margin-bottom: 1.5rem;
         }
-
-        .section-header h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 300;
-        }
-
+        .section-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; }
         .services-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            max-width: 1100px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;
         }
-
         .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: default;
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 2.5rem 2rem; position: relative; overflow: hidden;
+            transition: all 0.4s ease; cursor: default;
         }
-
         .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 2px;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
             background: linear-gradient(to right, transparent, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            opacity: 0; transition: opacity 0.4s ease;
         }
-
         .service-card:hover::before { opacity: 1; }
-
         .service-card:hover {
-            border-color: rgba(200, 164, 94, 0.3);
-            transform: translateY(-4px);
+            border-color: rgba(200, 164, 94, 0.3); transform: translateY(-4px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-
-        .service-card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
+        .service-card-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
         .service-icon { width: 40px; height: 40px; flex-shrink: 0; margin-top: 2px; }
-
         .service-icon svg {
-            width: 100%; height: 100%;
-            stroke: var(--accent);
-            stroke-width: 1.2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            width: 100%; height: 100%; stroke: var(--accent); stroke-width: 1.2;
+            fill: none; stroke-linecap: round; stroke-linejoin: round;
         }
-
-        .service-num {
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: rgba(200, 164, 94, 0.35);
-            letter-spacing: 0.1em;
-        }
-
-        .service-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
+        .service-num { font-family: var(--font-display); font-size: 0.75rem; font-weight: 400; color: rgba(200, 164, 94, 0.35); letter-spacing: 0.1em; }
+        .service-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-primary); }
+        .service-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; }
 
         /* TEAM */
-        .team {
-            padding: 8rem 3rem;
-            background: var(--bg-secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.1) saturate(0.3);
-            z-index: 0;
-        }
-
-        .team > * { position: relative; z-index: 1; }
-
+        .team { padding: 8rem 3rem; background: var(--bg-secondary); position: relative; overflow: hidden; }
         .team-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
+            max-width: 1000px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
         }
-
         .team-member {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            flex: 0 1 calc(33.333% - 1.34rem);
-            min-width: 200px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            text-align: center; padding: 2.5rem 1.5rem;
+            border: 1px solid var(--border); background: var(--bg-card);
+            transition: all 0.4s ease; position: relative; overflow: hidden;
+            flex: 0 1 calc(33.333% - 1.34rem); min-width: 200px;
         }
-
-        .team-member:hover {
-            border-color: rgba(200, 164, 94, 0.3);
-            transform: translateY(-4px);
-        }
-
+        .team-member:hover { border-color: rgba(200, 164, 94, 0.3); transform: translateY(-4px); }
         .team-member::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(to right, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
+            opacity: 0; transition: opacity 0.4s;
         }
-
         .team-member:hover::before { opacity: 1; }
-
         .team-icon {
-            width: 56px; height: 56px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(200, 164, 94, 0.05);
-            transition: all 0.4s;
+            width: 56px; height: 56px; margin: 0 auto 1.5rem; border-radius: 50%;
+            border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+            background: rgba(200, 164, 94, 0.05); transition: all 0.4s;
         }
-
-        .team-member:hover .team-icon {
-            border-color: var(--accent);
-            background: rgba(200, 164, 94, 0.1);
-        }
-
+        .team-member:hover .team-icon { border-color: var(--accent); background: rgba(200, 164, 94, 0.1); }
         .team-icon svg {
-            width: 24px; height: 24px;
-            stroke: var(--accent);
-            stroke-width: 1.5;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            width: 24px; height: 24px; stroke: var(--accent); stroke-width: 1.5;
+            fill: none; stroke-linecap: round; stroke-linejoin: round;
         }
-
-        .team-member h3 {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .team-member p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            line-height: 1.6;
-        }
+        .team-member h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .team-member p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; line-height: 1.6; }
 
         /* APPROACH */
         .approach { padding: 8rem 3rem; position: relative; }
-
-        .approach-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        .approach-item {
-            padding: 3rem;
-            border: 1px solid var(--border);
-            margin: -0.5px;
-            position: relative;
-        }
-
+        .approach-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .approach-item { padding: 3rem; border: 1px solid var(--border); margin: -0.5px; position: relative; }
         .approach-item .step-num {
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
+            font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em;
+            color: var(--accent); margin-bottom: 1.2rem; text-transform: uppercase;
         }
-
-        .approach-item h3 {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 0.8rem;
-        }
-
-        .approach-item p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
+        .approach-item h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.8rem; }
+        .approach-item p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; }
 
         /* PHILOSOPHY */
-        .philosophy {
-            padding: 10rem 3rem;
-            text-align: center;
-            position: relative;
-            background: var(--bg-secondary);
-        }
-
+        .philosophy { padding: 10rem 3rem; text-align: center; position: relative; background: var(--bg-secondary); }
         .philosophy::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(200, 164, 94, 0.04) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .philosophy blockquote {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.5;
-            max-width: 750px;
-            margin: 0 auto 2rem;
-            position: relative;
+            font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300; font-style: italic; line-height: 1.5;
+            max-width: 750px; margin: 0 auto 2rem; position: relative;
+            padding: 0 2rem;
         }
-
         .philosophy blockquote::before {
-            content: '\201C';
-            font-size: 6rem;
-            color: var(--accent);
-            position: absolute;
-            top: -2.5rem; left: -1.5rem;
-            line-height: 1;
-            opacity: 0.3;
+            content: '\201C'; font-size: 6rem; color: var(--accent);
+            position: absolute; top: -2.5rem; left: -1.5rem; line-height: 1; opacity: 0.3;
         }
-
         .philosophy blockquote::after {
-            content: '\201D';
-            font-size: 6rem;
-            color: var(--accent);
-            position: absolute;
-            bottom: -3.5rem; right: -1.5rem;
-            line-height: 1;
-            opacity: 0.3;
+            content: '\201D'; font-size: 6rem; color: var(--accent);
+            position: absolute; bottom: -1rem; right: 0; line-height: 1; opacity: 0.3;
         }
-
-        .philosophy .author {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        .philosophy .author { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
 
         /* CTA */
         .cta { padding: 8rem 3rem; text-align: center; position: relative; }
-
         .cta::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 80%; height: 1px;
             background: linear-gradient(to right, transparent, var(--border), transparent);
         }
-
-        .cta h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-        }
-
+        .cta h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 1.5rem; }
         .cta h2 em { font-style: italic; color: var(--accent); }
-
-        .cta p {
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
+        .cta p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 3rem; line-height: 1.8; font-size: 0.95rem; }
         .cta-btn {
-            display: inline-block;
-            padding: 1rem 3.5rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            display: inline-block; padding: 1rem 3.5rem; border: 1px solid var(--accent);
+            color: var(--accent); text-decoration: none; font-size: 0.75rem;
+            letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500;
+            transition: all 0.4s ease; position: relative; overflow: hidden;
         }
-
         .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: var(--accent);
-            transition: left 0.4s ease;
-            z-index: 0;
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%; background: var(--accent);
+            transition: left 0.4s ease; z-index: 0;
         }
-
         .cta-btn:hover::before { left: 0; }
         .cta-btn:hover { color: var(--bg-primary); }
         .cta-btn span { position: relative; z-index: 1; }
 
         /* FOOTER */
-        footer {
-            padding: 4rem 3rem 2rem;
-            border-top: 1px solid var(--border);
-            background: var(--bg-secondary);
-        }
-
+        footer { padding: 4rem 3rem 2rem; border-top: 1px solid var(--border); background: var(--bg-secondary); }
         .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2rem;
+            max-width: 1100px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;
         }
-
-        .footer-brand {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-        }
-
+        .footer-brand { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.15em; color: var(--accent); }
         .footer-brand span {
-            display: block;
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 0.25em;
-            color: var(--text-muted);
-            margin-top: 0.3rem;
-            text-transform: uppercase;
+            display: block; font-family: var(--font-body); font-size: 0.7rem;
+            font-weight: 300; letter-spacing: 0.25em; color: var(--text-muted);
+            margin-top: 0.3rem; text-transform: uppercase;
         }
-
         .footer-links { display: flex; gap: 3rem; }
-
-        .footer-col h4 {
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .footer-col a {
-            display: block;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            margin-bottom: 0.6rem;
-            transition: color 0.3s;
-        }
-
+        .footer-col h4 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+        .footer-col a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: color 0.3s; }
         .footer-col a:hover { color: var(--accent); }
-
         .footer-bottom {
-            max-width: 1100px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
+            max-width: 1100px; margin: 3rem auto 0; padding-top: 2rem;
             border-top: 1px solid rgba(200, 164, 94, 0.08);
-            text-align: center;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
+            text-align: center; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em;
         }
 
         /* SCROLL ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
             nav { padding: 1.2rem 1.5rem; }
-
             .nav-links {
-                display: none;
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%; height: 100vh;
-                background: rgba(10, 10, 10, 0.97);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                z-index: 200;
+                display: none; position: fixed; top: 0; left: 0;
+                width: 100%; height: 100vh; background: rgba(10, 10, 10, 0.97);
+                flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 200;
             }
-
             .nav-links.open { display: flex; }
             .menu-toggle { display: flex; }
             .hero { padding: 7rem 1.5rem 4rem; }
-
             .stats { padding: 3rem 1.5rem; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
             .stat-item:nth-child(2)::after { display: none; }
-
             .intro { padding: 4rem 1.5rem; }
             .intro-inner { grid-template-columns: 1fr; gap: 1.5rem; }
             .intro-label { writing-mode: horizontal-tb; transform: none; }
-
             .cinematic { height: 35vh; min-height: 220px; }
-
             .services { padding: 4rem 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
-
             .team { padding: 4rem 1.5rem; }
             .team-member { flex: 0 1 calc(50% - 1rem); }
-
             .approach-grid { grid-template-columns: 1fr; }
             .approach-item { padding: 2rem; }
-
             .philosophy { padding: 6rem 1.5rem; }
             .cta { padding: 5rem 1.5rem; }
-
             .footer-inner { flex-direction: column; }
             .footer-links { flex-direction: column; gap: 2rem; }
         }
-
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .team-member { flex: 0 1 100%; }
@@ -898,7 +387,6 @@
 </head>
 <body>
 
-    <!-- NAV -->
     <nav>
         <div class="nav-logo">FLEXDER<span>Corporativo</span></div>
         <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
@@ -907,26 +395,24 @@
         <ul class="nav-links">
             <li><a href="#servicios" onclick="this.closest('.nav-links').classList.remove('open')">Servicios</a></li>
             <li><a href="#equipo" onclick="this.closest('.nav-links').classList.remove('open')">Equipo</a></li>
-            <li><a href="#metodologia" onclick="this.closest('.nav-links').classList.remove('open')">Metodolog&iacute;a</a></li>
+            <li><a href="#metodologia" onclick="this.closest('.nav-links').classList.remove('open')">Metodolog&#237;a</a></li>
             <li><a href="#contacto" onclick="this.closest('.nav-links').classList.remove('open')" class="nav-cta">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <canvas id="hero-canvas"></canvas>
-        <div class="hero-badge">Acompa&ntilde;amiento Empresarial Integral</div>
+        <div class="hero-badge">Acompa&#241;amiento Empresarial Integral</div>
         <h1>Tu empresa,<br>nuestro <em>compromiso</em></h1>
-        <p class="hero-sub">Grupo de profesionistas que acompa&ntilde;an al empresario en cada etapa de su crecimiento &mdash; desde la materializaci&oacute;n de nuevas ideas hasta la protecci&oacute;n y optimizaci&oacute;n de su patrimonio.</p>
+        <p class="hero-sub">Grupo de profesionistas que acompa&#241;an al empresario en cada etapa de su crecimiento &#8212; desde la materializaci&#243;n de nuevas ideas hasta la protecci&#243;n y optimizaci&#243;n de su patrimonio.</p>
         <div class="hero-line"></div>
     </section>
 
-    <!-- STATS -->
     <section class="stats">
         <div class="stats-grid reveal">
             <div class="stat-item">
                 <div class="stat-number"><span class="counter" data-target="15">0</span><span class="suffix">+</span></div>
-                <div class="stat-label">A&ntilde;os de<br>experiencia</div>
+                <div class="stat-label">A&#241;os de<br>experiencia</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number"><span class="counter" data-target="200">0</span><span class="suffix">+</span></div>
@@ -943,18 +429,16 @@
         </div>
     </section>
 
-    <!-- INTRO -->
     <section class="intro">
         <div class="intro-inner reveal">
-            <div class="intro-label">Qui&eacute;nes somos</div>
+            <div class="intro-label">Qui&#233;nes somos</div>
             <div class="intro-text">
-                <h2>Profesionistas con visi&oacute;n <em>estrat&eacute;gica</em> al servicio del empresario</h2>
-                <p>En FLEXDER entendemos que cada negocio tiene necesidades &uacute;nicas. Por eso, nuestro equipo multidisciplinario ofrece un acompa&ntilde;amiento integral &mdash; combinando experiencia legal, contable, fiscal y estrat&eacute;gica para que tomes las mejores decisiones en cada momento de tu empresa.</p>
+                <h2>Profesionistas con visi&#243;n <em>estrat&#233;gica</em> al servicio del empresario</h2>
+                <p>En FLEXDER entendemos que cada negocio tiene necesidades &#250;nicas. Por eso, nuestro equipo multidisciplinario ofrece un acompa&#241;amiento integral &#8212; combinando experiencia legal, contable, fiscal y estrat&#233;gica para que tomes las mejores decisiones en cada momento de tu empresa.</p>
             </div>
         </div>
     </section>
 
-    <!-- CINEMATIC 1 -->
     <section class="cinematic reveal">
         <img class="cinematic-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&auto=format" alt="" loading="lazy">
         <div class="cinematic-overlay cinematic-overlay--gold"></div>
@@ -965,7 +449,6 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
     <section class="services" id="servicios">
         <div class="section-header reveal">
             <span class="section-tag">Nuestros Servicios</span>
@@ -977,16 +460,16 @@
                     <div class="service-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="6"/><path d="M12 28c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M26 10l4-4m0 0h-4m4 0v4"/></svg></div>
                     <div><div class="service-num">01</div></div>
                 </div>
-                <h3>Materializaci&oacute;n de Ideas de Negocio</h3>
-                <p>Te ayudamos a concretar tu idea de negocio nuevo o a desarrollar una nueva unidad de negocio dentro de tu empresa actual, con un enfoque estrat&eacute;gico y ejecutable.</p>
+                <h3>Materializaci&#243;n de Ideas de Negocio</h3>
+                <p>Te ayudamos a concretar tu idea de negocio nuevo o a desarrollar una nueva unidad de negocio dentro de tu empresa actual, con un enfoque estrat&#233;gico y ejecutable.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
                     <div class="service-icon"><svg viewBox="0 0 40 40"><path d="M8 32V12l12-6 12 6v20"/><rect x="15" y="20" width="10" height="12"/><path d="M20 6v14"/><circle cx="20" cy="15" r="3"/></svg></div>
                     <div><div class="service-num">02</div></div>
                 </div>
-                <h3>Acompa&ntilde;amiento Legal</h3>
-                <p>Asesor&iacute;a legal integral para proteger tus intereses comerciales, contractuales y corporativos en cada operaci&oacute;n y decisi&oacute;n de tu empresa.</p>
+                <h3>Acompa&#241;amiento Legal</h3>
+                <p>Asesor&#237;a legal integral para proteger tus intereses comerciales, contractuales y corporativos en cada operaci&#243;n y decisi&#243;n de tu empresa.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
@@ -994,7 +477,7 @@
                     <div><div class="service-num">03</div></div>
                 </div>
                 <h3>Contable y Fiscal</h3>
-                <p>Gesti&oacute;n contable y planeaci&oacute;n fiscal estrat&eacute;gica que garantiza el cumplimiento normativo y la optimizaci&oacute;n de tu carga tributaria.</p>
+                <p>Gesti&#243;n contable y planeaci&#243;n fiscal estrat&#233;gica que garantiza el cumplimiento normativo y la optimizaci&#243;n de tu carga tributaria.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
@@ -1002,7 +485,7 @@
                     <div><div class="service-num">04</div></div>
                 </div>
                 <h3>Estrategias de Mercado y Marca</h3>
-                <p>Desarrollo e implementaci&oacute;n de estrategias de mercado y posicionamiento de marca que impulsen el crecimiento y la diferenciaci&oacute;n de tu negocio.</p>
+                <p>Desarrollo e implementaci&#243;n de estrategias de mercado y posicionamiento de marca que impulsen el crecimiento y la diferenciaci&#243;n de tu negocio.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
@@ -1010,7 +493,7 @@
                     <div><div class="service-num">05</div></div>
                 </div>
                 <h3>Blindaje Patrimonial y Empresarial</h3>
-                <p>Protecci&oacute;n integral del patrimonio personal y empresarial mediante estructuras legales que resguardan tus activos ante cualquier contingencia.</p>
+                <p>Protecci&#243;n integral del patrimonio personal y empresarial mediante estructuras legales que resguardan tus activos ante cualquier contingencia.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
@@ -1018,7 +501,7 @@
                     <div><div class="service-num">06</div></div>
                 </div>
                 <h3>Gobierno Corporativo</h3>
-                <p>Implementaci&oacute;n de pr&aacute;cticas de gobierno corporativo que fortalecen la toma de decisiones, la transparencia y la sostenibilidad de tu organizaci&oacute;n.</p>
+                <p>Implementaci&#243;n de pr&#225;cticas de gobierno corporativo que fortalecen la toma de decisiones, la transparencia y la sostenibilidad de tu organizaci&#243;n.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
@@ -1026,28 +509,27 @@
                     <div><div class="service-num">07</div></div>
                 </div>
                 <h3>Estructura Empresarial y Patrimonial</h3>
-                <p>Dise&ntilde;o y reestructuraci&oacute;n de tu arquitectura empresarial y patrimonial para maximizar eficiencia operativa y protecci&oacute;n de activos.</p>
+                <p>Dise&#241;o y reestructuraci&#243;n de tu arquitectura empresarial y patrimonial para maximizar eficiencia operativa y protecci&#243;n de activos.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
                     <div class="service-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><path d="M20 10v10l6 6"/><path d="M30 8l2-2M10 8L8 6"/><path d="M14 14c3.3-2 8.7-2 12 0"/></svg></div>
                     <div><div class="service-num">08</div></div>
                 </div>
-                <h3>Optimizaci&oacute;n de Recursos</h3>
-                <p>Implementaci&oacute;n de procesos necesarios para la optimizaci&oacute;n de recursos, incluyendo estrategias legales de reparto a socios que la ley permite.</p>
+                <h3>Optimizaci&#243;n de Recursos</h3>
+                <p>Implementaci&#243;n de procesos necesarios para la optimizaci&#243;n de recursos, incluyendo estrategias legales de reparto a socios que la ley permite.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-card-header">
                     <div class="service-icon"><svg viewBox="0 0 40 40"><path d="M8 32l6-10 6 6 6-14 6 8"/><path d="M8 8v24h24"/><circle cx="32" cy="22" r="2"/><path d="M28 10l4 2-4 2"/></svg></div>
                     <div><div class="service-num">09</div></div>
                 </div>
-                <h3>An&aacute;lisis y Optimizaci&oacute;n de Capital</h3>
-                <p>Diagn&oacute;stico profundo de las necesidades de tu empresa para implementar procesos que optimicen el capital y potencien el rendimiento financiero.</p>
+                <h3>An&#225;lisis y Optimizaci&#243;n de Capital</h3>
+                <p>Diagn&#243;stico profundo de las necesidades de tu empresa para implementar procesos que optimicen el capital y potencien el rendimiento financiero.</p>
             </div>
         </div>
     </section>
 
-    <!-- CINEMATIC 2 -->
     <section class="cinematic reveal">
         <img class="cinematic-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format" alt="" loading="lazy">
         <div class="cinematic-overlay cinematic-overlay--to-secondary"></div>
@@ -1058,7 +540,6 @@
         </div>
     </section>
 
-    <!-- TEAM -->
     <section class="team" id="equipo">
         <div class="section-header reveal">
             <span class="section-tag">Nuestro Equipo</span>
@@ -1073,7 +554,7 @@
             <div class="team-member reveal">
                 <div class="team-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h8M8 11h5M8 15h7"/><path d="M16 13l2 2-2 2"/></svg></div>
                 <h3>Contadores</h3>
-                <p>Contabilidad, auditor&iacute;a y planeaci&oacute;n fiscal</p>
+                <p>Contabilidad, auditor&#237;a y planeaci&#243;n fiscal</p>
             </div>
             <div class="team-member reveal">
                 <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
@@ -1083,7 +564,7 @@
             <div class="team-member reveal">
                 <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M2 12h4l3-9 4 18 3-9h6"/></svg></div>
                 <h3>Financieros</h3>
-                <p>An&aacute;lisis, valuaci&oacute;n y optimizaci&oacute;n de capital</p>
+                <p>An&#225;lisis, valuaci&#243;n y optimizaci&#243;n de capital</p>
             </div>
             <div class="team-member reveal">
                 <div class="team-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M4.9 4.9l2.8 2.8m8.5 8.5l2.8 2.8M4.9 19.1l2.8-2.8m8.5-8.5l2.8-2.8"/></svg></div>
@@ -1093,61 +574,56 @@
         </div>
     </section>
 
-    <!-- CINEMATIC 3 -->
     <section class="cinematic reveal">
         <img class="cinematic-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80&auto=format" alt="" loading="lazy">
         <div class="cinematic-overlay cinematic-overlay--from-secondary"></div>
         <div class="cinematic-content">
             <span class="section-tag">Proceso Comprobado</span>
-            <h3>Una metodolog&iacute;a dise&ntilde;ada para resultados medibles</h3>
+            <h3>Una metodolog&#237;a dise&#241;ada para resultados medibles</h3>
             <div class="cinematic-gold-line"></div>
         </div>
     </section>
 
-    <!-- APPROACH -->
     <section class="approach" id="metodologia">
         <div class="section-header reveal">
-            <span class="section-tag">Nuestra Metodolog&iacute;a</span>
-            <h2>C&oacute;mo trabajamos</h2>
+            <span class="section-tag">Nuestra Metodolog&#237;a</span>
+            <h2>C&#243;mo trabajamos</h2>
         </div>
         <div class="approach-grid">
             <div class="approach-item reveal">
                 <div class="step-num">Paso 01</div>
-                <h3>Diagn&oacute;stico</h3>
-                <p>Analizamos a profundidad la situaci&oacute;n actual de tu empresa, identificando fortalezas, riesgos y oportunidades de mejora.</p>
+                <h3>Diagn&#243;stico</h3>
+                <p>Analizamos a profundidad la situaci&#243;n actual de tu empresa, identificando fortalezas, riesgos y oportunidades de mejora.</p>
             </div>
             <div class="approach-item reveal">
                 <div class="step-num">Paso 02</div>
                 <h3>Estrategia</h3>
-                <p>Dise&ntilde;amos un plan integral y personalizado con soluciones concretas para cada una de las necesidades detectadas.</p>
+                <p>Dise&#241;amos un plan integral y personalizado con soluciones concretas para cada una de las necesidades detectadas.</p>
             </div>
             <div class="approach-item reveal">
                 <div class="step-num">Paso 03</div>
-                <h3>Implementaci&oacute;n</h3>
-                <p>Ejecutamos cada soluci&oacute;n con nuestro equipo multidisciplinario, garantizando precisi&oacute;n y cumplimiento en cada proceso.</p>
+                <h3>Implementaci&#243;n</h3>
+                <p>Ejecutamos cada soluci&#243;n con nuestro equipo multidisciplinario, garantizando precisi&#243;n y cumplimiento en cada proceso.</p>
             </div>
             <div class="approach-item reveal">
                 <div class="step-num">Paso 04</div>
-                <h3>Acompa&ntilde;amiento</h3>
-                <p>Te acompa&ntilde;amos de manera continua, monitoreando resultados y ajustando estrategias conforme tu empresa evoluciona.</p>
+                <h3>Acompa&#241;amiento</h3>
+                <p>Te acompa&#241;amos de manera continua, monitoreando resultados y ajustando estrategias conforme tu empresa evoluciona.</p>
             </div>
         </div>
     </section>
 
-    <!-- PHILOSOPHY -->
     <section class="philosophy reveal">
-        <blockquote>El verdadero &eacute;xito empresarial se construye con la estructura correcta, la estrategia precisa y el acompa&ntilde;amiento adecuado.</blockquote>
-        <p class="author">&mdash; Flexder Corporativo</p>
+        <blockquote>El verdadero &#233;xito empresarial se construye con la estructura correcta, la estrategia precisa y el acompa&#241;amiento adecuado.</blockquote>
+        <p class="author">&#8212; Flexder Corporativo</p>
     </section>
 
-    <!-- CTA -->
     <section class="cta" id="contacto">
         <h2 class="reveal">Construyamos juntos<br>el futuro de <em>tu empresa</em></h2>
-        <p class="reveal">Agenda una consulta inicial sin costo y descubre c&oacute;mo podemos impulsar el crecimiento y la protecci&oacute;n de tu negocio.</p>
-        <a href="/cdn-cgi/l/email-protection#5e3d31302a3f3d2a311e38323b263a3b2c703d3133" class="cta-btn reveal"><span>Agendar Consulta</span></a>
+        <p class="reveal">Agenda una consulta inicial sin costo y descubre c&#243;mo podemos impulsar el crecimiento y la protecci&#243;n de tu negocio.</p>
+        <a href="mailto:contacto@flexder.com" class="cta-btn reveal"><span>Agendar Consulta</span></a>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">FLEXDER<span>Corporativo</span></div>
@@ -1162,84 +638,73 @@
                 <div class="footer-col">
                     <h4>Empresa</h4>
                     <a href="#equipo">Equipo</a>
-                    <a href="#metodologia">Metodolog&iacute;a</a>
+                    <a href="#metodologia">Metodolog&#237;a</a>
                     <a href="#contacto">Contacto</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2025 Flexder Corporativo. Todos los derechos reservados.</div>
+        <div class="footer-bottom">&#169; 2025 Flexder Corporativo. Todos los derechos reservados.</div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // PARTICLE ANIMATION
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let mouse = { x: null, y: null };
+    <script>
+        var canvas = document.getElementById('hero-canvas');
+        var ctx = canvas.getContext('2d');
+        var particles = [];
+        var mouse = { x: null, y: null };
 
-        function resizeCanvas() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        }
+        function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+        canvas.addEventListener('mousemove', function(e) { var r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+        canvas.addEventListener('mouseleave', function() { mouse.x = null; mouse.y = null; });
 
-        canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
-        canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.speedY = (Math.random() - 0.5) * 0.3;
-                this.opacity = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (mouse.x !== null) {
-                    const dx = mouse.x - this.x, dy = mouse.y - this.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        const force = (150 - dist) / 150;
-                        this.speedX -= (dx / dist) * force * 0.02;
-                        this.speedY -= (dy / dist) * force * 0.02;
-                    }
+        function Particle() { this.reset(); }
+        Particle.prototype.reset = function() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.3;
+            this.speedY = (Math.random() - 0.5) * 0.3;
+            this.opacity = Math.random() * 0.5 + 0.1;
+        };
+        Particle.prototype.update = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (mouse.x !== null) {
+                var dx = mouse.x - this.x, dy = mouse.y - this.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    var force = (150 - dist) / 150;
+                    this.speedX -= (dx / dist) * force * 0.02;
+                    this.speedY -= (dy / dist) * force * 0.02;
                 }
-                this.speedX *= 0.99;
-                this.speedY *= 0.99;
-                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
             }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(200, 164, 94, ${this.opacity})`;
-                ctx.fill();
-            }
-        }
+            this.speedX *= 0.99;
+            this.speedY *= 0.99;
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        };
+        Particle.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(200, 164, 94, ' + this.opacity + ')';
+            ctx.fill();
+        };
 
         function initParticles() {
             particles = [];
-            const count = Math.min(80, Math.floor(canvas.width * canvas.height / 12000));
-            for (let i = 0; i < count; i++) particles.push(new Particle());
+            var count = Math.min(80, Math.floor(canvas.width * canvas.height / 12000));
+            for (var i = 0; i < count; i++) particles.push(new Particle());
         }
         initParticles();
 
         function connectParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+            for (var i = 0; i < particles.length; i++) {
+                for (var j = i + 1; j < particles.length; j++) {
+                    var dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 120) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(200, 164, 94, ${(1 - dist / 120) * 0.15})`;
+                        ctx.strokeStyle = 'rgba(200, 164, 94, ' + ((1 - dist / 120) * 0.15) + ')';
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -1251,42 +716,43 @@
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
+            for (var i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); }
             connectParticles();
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
 
-        // COUNTER ANIMATION
         function animateCounters() {
-            document.querySelectorAll('.counter').forEach(counter => {
-                if (counter.dataset.animated) return;
-                const target = +counter.dataset.target;
-                const duration = 2000;
-                const start = performance.now();
-                function update(now) {
-                    const progress = Math.min((now - start) / duration, 1);
-                    counter.textContent = Math.floor(target * (1 - Math.pow(1 - progress, 3)));
-                    if (progress < 1) requestAnimationFrame(update);
-                    else counter.textContent = target;
-                }
-                counter.dataset.animated = 'true';
-                requestAnimationFrame(update);
-            });
+            var counters = document.querySelectorAll('.counter');
+            for (var i = 0; i < counters.length; i++) {
+                (function(counter) {
+                    if (counter.getAttribute('data-animated')) return;
+                    var target = parseInt(counter.getAttribute('data-target'));
+                    var duration = 2000;
+                    var start = performance.now();
+                    function update(now) {
+                        var progress = Math.min((now - start) / duration, 1);
+                        counter.textContent = Math.floor(target * (1 - Math.pow(1 - progress, 3)));
+                        if (progress < 1) requestAnimationFrame(update);
+                        else counter.textContent = target;
+                    }
+                    counter.setAttribute('data-animated', 'true');
+                    requestAnimationFrame(update);
+                })(counters[i]);
+            }
         }
 
-        // SCROLL REVEAL
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry, i) {
                 if (entry.isIntersecting) {
-                    setTimeout(() => { entry.target.classList.add('visible'); }, i * 80);
+                    setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
                     observer.unobserve(entry.target);
                     if (entry.target.closest('.stats')) setTimeout(animateCounters, 300);
                 }
             });
         }, { threshold: 0.15 });
-        reveals.forEach(el => observer.observe(el));
+        reveals.forEach(function(el) { observer.observe(el); });
     </script>
 
 </body>
