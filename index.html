@@ -536,14 +536,17 @@
         .team-grid {
             max-width: 1000px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 2rem;
         }
 
         .team-member {
             text-align: center;
             padding: 2.5rem 1.5rem;
+            flex: 0 1 calc(33.333% - 1.34rem);
+            min-width: 200px;
             border: 1px solid var(--border);
             background: var(--bg-card);
             transition: all 0.4s ease;
@@ -684,6 +687,16 @@
             color: var(--accent);
             position: absolute;
             top: -2.5rem; left: -1.5rem;
+            line-height: 1;
+            opacity: 0.3;
+        }
+
+        .philosophy blockquote::after {
+            content: '\201D';
+            font-size: 6rem;
+            color: var(--accent);
+            position: absolute;
+            bottom: -3.5rem; right: -1.5rem;
             line-height: 1;
             opacity: 0.3;
         }
@@ -865,7 +878,7 @@
             .services-grid { grid-template-columns: 1fr; }
 
             .team { padding: 4rem 1.5rem; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-member { flex: 0 1 calc(50% - 1rem); }
 
             .approach-grid { grid-template-columns: 1fr; }
             .approach-item { padding: 2rem; }
@@ -879,7 +892,7 @@
 
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
+            .team-member { flex: 0 1 100%; }
         }
     </style>
 </head>
@@ -1123,7 +1136,7 @@
 
     <!-- PHILOSOPHY -->
     <section class="philosophy reveal">
-        <blockquote>El verdadero &eacute;xito empresarial se construye con la estructura correcta, la estrategia precisa y el acompa&ntilde;amiento adecuado.&rdquo;</blockquote>
+        <blockquote>El verdadero &eacute;xito empresarial se construye con la estructura correcta, la estrategia precisa y el acompa&ntilde;amiento adecuado.</blockquote>
         <p class="author">&mdash; Flexder Corporativo</p>
     </section>
 
